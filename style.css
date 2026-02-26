@@ -4,6 +4,9 @@
     --contrast-color: #FF6A00;
     --text-color: #ffffff;
 
+    --transparent-color: rgba(255, 255, 255, 0.3);
+    --extreme-transparent-color: rgba(255, 255, 255, 0.12);
+
     --gradient-color1: #FF9500;
     --gradient-color2: #C82F00;
     --gradient-color3: #6E0000;
@@ -103,6 +106,38 @@ a{
     font-size: var(--subtext-size);
 }
 
+.centerDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerVerticallyDiv{
+    display: flex;
+    align-items: center;
+}
+
+.centerHorizontallyDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.addTransparentBg{
+    background-color: var(--transparent-color);
+}
+
+.addExtremeTransparentBg{
+    background-color: var(--extreme-transparent-color);
+}
+
+.addTransparency{
+    opacity: var(--default-transparency);
+}
+
+.addExtremeTransparency{
+    opacity: var(--extreme-transparency);
+}
+
 .slider{
     width: 100%;
     position: relative;
@@ -118,6 +153,22 @@ a{
     margin-bottom: var(--main-margin-spacer);
 }
 
+.addMarginBottom{
+    margin-bottom: var(--main-margin-spacer);
+}
+
+.addMarginTop{
+    margin-top: var(--main-margin-spacer);
+}
+
+.addMarginRight{
+    margin-right: var(--main-margin-spacer);
+}
+
+.addMarginLeft{
+    margin-left: var(--main-margin-spacer);
+}
+
 .roundImgBorders img{
     border-radius: var(--main-border-radius);
 }
@@ -125,6 +176,14 @@ a{
 .addExtremeMargins{
     margin-top: var(--extreme-margin-spacer);
     margin-bottom: var(--extreme-margin-spacer);
+}
+
+.addExtremeMarginsBottom{
+    margin-bottom: var(--extreme-margin-spacer);
+}
+
+.addExtremeMarginsTop{
+    margin-top: var(--extreme-margin-spacer);
 }
 
 .extremeTightenTextDiv
@@ -168,6 +227,31 @@ a{
         var(--gradient-color3) 100%
     );
 }
+
+.readMore{
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: fit-content;
+
+    border-radius: 100px;
+    padding-right: 6px;
+}
+
+.readMore img{
+    background-color: var(--contrast-color);
+    height: 18px;
+    width: 18px;
+    padding: 8px;
+    border-radius: 100px;
+}
+
+.readMore a{
+    white-space: nowrap;
+    padding-left: 3px;
+    padding-right: 6px;
+}
+
 
 #mobileNav{
     display: flex;
@@ -259,10 +343,7 @@ a{
 #desktopNav{
     display: none;
     justify-content: space-between;
-}
-
-#desktopNav h1{
-    font-size: var(--main-text-size);
+    margin-bottom: var(--main-margin-spacer);
 }
 
 #navList{
@@ -278,16 +359,17 @@ a{
 .getInTouch{
     display: flex;
     align-items: center;
-    height: 48px;
+    height: 42px;
+    width: fit-content;
 
     border-radius: 100px;
-    padding-right: 3px;
+    padding-right: 4px;
 }
 
 .getInTouch img{
     background-color: var(--secondary-color);
-    height: 21px;
-    width: 21px;
+    height: 18px;
+    width: 18px;
     padding: 8px;
     border-radius: 100px;
 }
@@ -313,15 +395,11 @@ a{
     border-radius: 100px;
 }
 
-#introductionSplit{
+#mobileIntroductionSplit, #introductionSplit{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--main-margin-spacer);
-}
-
-#introductionSplit h5{
-    width: 30%;
 }
 
 #mobileIntroductionImages img{
@@ -334,6 +412,7 @@ a{
 }
 
 #desktopIntroductionSplitRight{
+    display: none;
     margin-left: auto;
 }
 
@@ -348,15 +427,36 @@ a{
     object-fit: cover;
 }
 
+#aboutMeTextImageSplit{
+    display: flex;
+}
+
+#aboutMeTextImageSplit span{
+    display: flex;
+    align-items: center;
+}
+
+#aboutMeTransparentText{
+    opacity: var(--default-transparency);
+}
+
+#aboutMeDesktop{
+    display: none;
+}
+
+#aboutMeMobileImg{
+    height: 452px;
+    width: auto;
+}
 
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
-        --title-text-size: 1.5rem; /* 18 */
-        --header-text-size: 4.5rem;  /* 72 */
-        --large-text-size: 2.75rem; /* 28 */
-        --main-text-size: 1.75rem; /* 20 */
-        --subtext-size: 1.5rem; /* 16 */
+        --title-text-size: 1.5rem; 
+        --header-text-size: 4rem; 
+        --large-text-size: 2.75rem; 
+        --main-text-size: 1.75rem;
+        --subtext-size: 1.35rem; 
     }   
 
     body{
@@ -419,16 +519,47 @@ a{
         display: none;
     }
 
+    #mobileIntroductionSplit{
+        display: none;
+    }
+
+    #desktopIntroductionSplitRight{
+        display: block;
+    }
+
     #desktopIntroductionImages{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         gap: var(--margin-between-images);
     }
+
+    #aboutMeMobile{
+        display: none;
+    }
+
+    #aboutMeDesktopImg{
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    #aboutMeDesktop{
+        display: block;
+    }
 }
 
 /*DESKTOP*/
 @media (min-width: 1024px) {
+    
+    :root{
+        --title-text-size: 1.5rem; 
+        --header-text-size: 4.5rem; 
+        --large-text-size: 2.75rem; 
+        --main-text-size: 1.75rem;
+        --subtext-size: 1.5rem; 
+    }   
+
     body{
         margin: 48px;
     }
