@@ -6,6 +6,7 @@
 
     --transparent-color: rgba(255, 255, 255, 0.3);
     --extreme-transparent-color: rgba(255, 255, 255, 0.12);
+    --super-extreme-transparent-color: rgba(255, 255, 255, 0.06);
 
     --gradient-color1: #FF9500;
     --gradient-color2: #C82F00;
@@ -20,10 +21,15 @@
     --default-transparency: 30%;
     --extreme-transparency: 12%;
 
-    --margin-between-images: 6px;
     --main-border-radius: 12px;
+
+    --default-padding: 12px;
+
+    --margin-between-images: 6px;
     --main-margin-spacer: 32px;
     --extreme-margin-spacer: 64px;
+
+
 }
 
 @font-face {
@@ -40,7 +46,6 @@ body{
     background-color: var(--primary-color);
     color: var(--text-color);
     font-family: 'jaldi-regular';
-
     margin: 12px;
 }
 
@@ -106,6 +111,71 @@ a{
     font-size: var(--subtext-size);
 }
 
+button:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+button:active{
+    transform: scale(1);
+    transition: transform 0.3 ease;
+}
+
+.hide{
+    display: none;
+}
+
+.hideOverflow{
+    overflow: hidden;
+}
+
+.galleryImg{
+    width: 62vw;
+    height: auto;
+    max-height: 78vw;
+    object-fit: cover;
+    background-color: var(--super-extreme-transparent-color);
+    border-radius: var(--main-border-radius);
+    padding: var(--default-padding);
+}
+
+.gallerySelectedImg{
+    width: 72vw;
+    height: auto;
+    max-height: 80vw;
+    object-fit: cover;
+    background-color: var(--super-extreme-transparent-color);
+    border-radius: var(--main-border-radius);
+    padding: var(--default-padding);
+}
+
+.galleryImgNoBg{
+    width: 62vw;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--main-border-radius);
+}
+
+.gallerySelectedImgNoBg{
+    width: 72vw;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--main-border-radius);
+}
+
+
+.addGap{
+    gap: var(--main-margin-spacer);
+}
+
+.addGapBetweenImg{
+    gap: var(--margin-between-images);
+}
+
+.alignDivRight{
+    margin-left: auto;
+}
+
 .centerDiv{
     display: flex;
     justify-content: center;
@@ -148,6 +218,10 @@ a{
     width: 80%;
 }
 
+.slightTightenText{
+    width: 90%;
+}
+
 .addMargins{
     margin-top: var(--main-margin-spacer);
     margin-bottom: var(--main-margin-spacer);
@@ -184,6 +258,46 @@ a{
 
 .addExtremeMarginsTop{
     margin-top: var(--extreme-margin-spacer);
+}
+
+.marginTop12px{
+    margin-top: 12px;
+}
+
+.marginBottom12px{
+    margin-bottom: 12px;
+}
+
+.marginLeft12px{
+    margin-left: 12px;
+}
+
+.marginRight12px{
+    margin-right: 12px;
+}
+
+.marginVertical12px{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.marginHorizontal12px{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.margin12px{
+    margin: 12px;
+}
+
+.alignRight{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.alignLeft{
+    display: flex;
+    justify-content: flex-start;
 }
 
 .extremeTightenTextDiv
@@ -252,6 +366,11 @@ a{
     padding-right: 6px;
 }
 
+.galleryWrapper{
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
 
 #mobileNav{
     display: flex;
@@ -449,6 +568,30 @@ a{
     width: auto;
 }
 
+#galleryLeftRightBtns{
+    display: none;
+
+    position: absolute;
+    inset: 0;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 var(--default-padding);
+    z-index: 5;
+
+
+}
+
+#galleryLeftRightBtns button{
+    background-color: var(--extreme-transparent-color);
+    border-radius: 100px;
+    height: 48px;
+    width: 48px;
+    border: none;
+    z-index: 2;
+}
+
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
@@ -457,11 +600,34 @@ a{
         --large-text-size: 2.75rem; 
         --main-text-size: 1.75rem;
         --subtext-size: 1.35rem; 
+
+        --main-border-radius: 16px;
+
+        --margin-between-images: 12px;
+        --main-margin-spacer: 64px;
+        --extreme-margin-spacer: 128px;
     }   
 
     body{
         margin: 24px;
     }
+
+    .galleryImg{
+        width: 82vw;
+    }
+
+    .gallerySelectedImg{
+        width: 86vw;
+    }
+
+    .galleryImgNoBg{
+        width: 82vw;
+    }
+
+    .gallerySelectedImgNoBg{
+        width: 86vw;
+    }
+
 
     #desktopNav{
         display: flex;
@@ -515,6 +681,10 @@ a{
         width: 60%;
     }
 
+    .slightTightenText{
+        width: 80%;
+    }
+
     #mobileIntroductionImages{
         display: none;
     }
@@ -547,6 +717,27 @@ a{
     #aboutMeDesktop{
         display: block;
     }
+
+    #whoAmITextSplit{
+        display: flex;
+    }
+
+    #whoAmIText{
+        width: 60%;
+        margin-left: var(--main-margin-spacer);
+    }
+
+    #pastProjects3DText{
+        display: flex;
+    }
+
+    #pastProjectsMainText{
+        margin-left: auto;
+    }
+
+    #galleryLeftRightBtns{
+        display: flex;
+    }
 }
 
 /*DESKTOP*/
@@ -557,7 +748,9 @@ a{
         --header-text-size: 4.5rem; 
         --large-text-size: 2.75rem; 
         --main-text-size: 1.75rem;
-        --subtext-size: 1.5rem; 
+        --subtext-size: 1.5rem;
+        
+        --main-border-radius: 24px;
     }   
 
     body{
