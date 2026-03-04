@@ -6,13 +6,24 @@
 </head>
 
 <body>
-
     <div id="heroSection" class="gradientDiv">
         <nav id="mobileNav">
             <a href="#">DUDEXH</a>
 
-            <img src="Icons/Menu.png" alt="">
+            <button id="navToggleBtn">
+                <img id="navMoreBtns" src="Icons/Menu.png" alt="">
+                <img class="closeBtn hide" id="navCloseBtns" src="Icons/close.svg" alt="">
+            </button>
         </nav>
+
+        <div id="mobileNavOptions">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Hobbies</a></li>
+        </div>
+
 
         <nav id="desktopNav">
             <a href="#">DUDEXH</a>
@@ -29,80 +40,50 @@
                 </div>
             </ul>
         </nav>
-
-
+        
         <div id="mainPage">
-            <img id="heroMobileImg" src="Images/Mech2_transparent.png" alt="">
+            <img id="heroMobileImg" class="noZoom" src="Images/Mech2_transparent.png" alt="">
 
             <div id="heroMainText">
                 <h1 class="boldText">3D Artist & Technical Creator</h1>
                 <h2 class="margin0">Specialized in Modeling, Environments, Game Assets, and Interactive 3D</h2>
             </div>
 
-            <img id="heroDesktopImg" src="Images/P1_transparent.webp" alt="">
+            <img class="noZoom" id="heroDesktopImg" src="Images/P1_transparent_hero.webp" alt="">
+            <img class="noZoom" id="heroTabletImg" src="Images/Mech2_transparent.png" alt="">
         </div>
-        
-        <div id="heroSlider" class="slider">
-            <p>3D MODELER</p>
-            <p>BUILDER</p>
-            <p>SCRIPTER</p>
-            <p>ANIMATOR</p>
-            <p>UI DESIGN</p>
-            <p>SFX ARTIST</p>
-            <p>WEB DESIGNER</p>
+
+        <div class="slider">
+            <div class="sliderTrack" id="heroSlider">
+                <p>3D MODELER</p>
+                <p>BUILDER</p>
+                <p>SCRIPTER</p>
+                <p>ANIMATOR</p>
+                <p>UI DESIGN</p>
+                <p>SFX ARTIST</p>
+                <p>WEB DESIGNER</p>
+
+                <p>3D MODELER</p>
+                <p>BUILDER</p>
+                <p>SCRIPTER</p>
+                <p>ANIMATOR</p>
+                <p>UI DESIGN</p>
+                <p>SFX ARTIST</p>
+                <p>WEB DESIGNER</p>
+            </div>
         </div>
     </div>
 
-    <div id="codeSlider" class="slider">
-        <div id="codeLanguage">
-            <img src="Icons/JavaScript.svg" alt="">
-            <p>JavaScript</p>
-        </div>
+    <div class="slider">
+        <div class="sliderTrack" id="codeSlider">
 
-        <div id="codeLanguage">
-            <img src="Icons/Python.svg" alt="">
-            <p>Python</p>
-        </div>
+            <!--
+            <div class="codeLanguage">
+                <img src="Icons/Java.svg" alt="">
+                <p>Java</p>
+            </div>
+            -->
 
-        <div id="codeLanguage">
-            <img src="Icons/Lua.svg" alt="">
-            <p>Lua</p>
-        </div>
-
-        <div id="codeLanguage">
-            <img src="Icons/Cpp.svg" alt="">
-            <p>C++</p>
-        </div>
-
-        <div id="codeLanguage">
-            <img src="Icons/HTML.svg" alt="">
-            <p>HTML</p>
-        </div>
-    
-        <div id="codeLanguage">
-            <img src="Icons/CSS.svg" alt="">
-            <p>CSS</p>
-        </div>
-
-        <div id="codeLanguage">
-            <img src="Icons/Java.svg" alt="">
-            <p>Java</p>
-        </div>
-        
-        
-        <div id="codeLanguage">
-            <img src="Icons/JavaScript.svg" alt="">
-            <p>JavaScript</p>
-        </div>
-
-        <div id="codeLanguage">
-            <img src="Icons/Python.svg" alt="">
-            <p>Python</p>
-        </div>
-
-        <div id="codeLanguage">
-            <img src="Icons/Lua.svg" alt="">
-            <p>Lua</p>
         </div>
     </div>
 
@@ -304,30 +285,16 @@
                 </h3>
             </div>
 
-            <div id="codeSlider" class="slider">
-                <div id="codeLanguage">
-                    <img src="Icons/Roblox_Studio.svg" alt="">
-                    <p>Roblox Studio</p>
-                </div>
-
-                <div id="codeLanguage">
-                    <img src="Icons/Photoshop.svg" alt="">
-                    <p>Adobe Photoshop</p>
-                </div>
-                
-                <div id="codeLanguage">
-                    <img src="Icons/Adobe_Illustrator.svg" alt="">
-                    <p>Adobe Illustrator</p>
-                </div>
-
-                <div id="codeLanguage">
-                    <img src="Icons/Substance_painter.svg" alt="">
-                    <p>Substance Painter</p>
-                </div>
-
-                <div id="codeLanguage">
-                    <img src="Icons/Blender.svg" alt="">
-                    <p>Blender</p>
+            <div class="slider addSlightMargins">
+                <div id="appSlider" class="sliderTrack">
+                    
+                    <!--
+                    <div class="codeLanguage">
+                        <img src="Icons/Roblox_Studio.svg" alt="">
+                        <p>Roblox Studio</p>
+                    </div>
+                    -->
+                    
                 </div>
             </div>
         </div>
@@ -335,105 +302,67 @@
 
 
         <div>
-            <div class="galleryWrapper">
-                <div id="galleryLeftRightBtns">
-                    <button>
-                        <img src="Icons/ArrowLeft.svg" alt="">
-                    </button>
-
-                    <button>
-                        <img src="Icons/ArrowRight.svg" alt="">
-                    </button>
-                </div>
-
-                <p>Characters</p>
-
-                <div class="centerDiv addGapBetweenImg hideOverflow addMarginBottom">
-                    <img class="galleryImg" src="Images/Mech2_transparent.png" alt="">
-                    <img class="gallerySelectedImg" src="Images/Mech2_transparent.png" alt="">
-                    <img class="galleryImg" src="Images/Mech2_transparent.png" alt="">
-                </div>
+            <p>Characters</p>
+            <div class="galleryContainer">
+                <img class="galleryImg fixHeight" src="Images/Mech2_transparent.png" alt="">
+                <img class="galleryImg fixHeight" src="Images/Mech2_transparent.png" alt="">
+                <img class="galleryImg fixHeight" src="Images/Mech2_transparent.png" alt="">
+                <img class="galleryImg fixHeight" src="Images/Mech2_transparent.png" alt="">
+                <img class="galleryImg fixHeight" src="Images/Mech2_transparent.png" alt="">
             </div>
-            
-            <div class="galleryWrapper">
-                <div id="galleryLeftRightBtns">
-                    <button>
-                        <img src="Icons/ArrowLeft.svg" alt="">
-                    </button>
-
-                    <button>
-                        <img src="Icons/ArrowRight.svg" alt="">
-                    </button>
-                </div>
-
-                <p>Vehicles</p>
-
-                <div class="centerDiv addGapBetweenImg hideOverflow addMarginBottom">
-                    <img class="galleryImg" src="Images/P1_transparent.webp" alt="">
-                    <img class="gallerySelectedImg" src="Images/P1_transparent.webp" alt="">
-                    <img class="galleryImg" src="Images/P1_transparent.webp" alt="">
-                </div>
+        
+            <p>Vehicles</p>
+            <div class="galleryContainer">
+                <img class="galleryImg" src="Images/P1_transparent.png" alt="">
+                <img class="galleryImg" src="Images/P1_transparent.png" alt="">
+                <img class="galleryImg" src="Images/P1_transparent.png" alt="">
+                <img class="galleryImg" src="Images/P1_transparent.png" alt="">
+                <img class="galleryImg" src="Images/P1_transparent.png" alt="">
             </div>
-            
-            <div class="galleryWrapper">
-                <div id="galleryLeftRightBtns">
-                    <button>
-                        <img src="Icons/ArrowLeft.svg" alt="">
-                    </button>
-
-                    <button>
-                        <img src="Icons/ArrowRight.svg" alt="">
-                    </button>
-                </div>
-
-                <p>Weapons</p>
-
-                <div class="centerDiv addGapBetweenImg hideOverflow addMarginBottom">
-                    <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
-                    <img class="gallerySelectedImg" src="Images/ak_47_transparent.png" alt="">
-                    <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
-                </div>
+        
+            <p>Weapons</p>
+            <div class="galleryContainer">
+                <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
+                <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
+                <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
+                <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
+                <img class="galleryImg" src="Images/ak_47_transparent.png" alt="">
             </div>
 
-            <div class="galleryWrapper">
-                <div id="galleryLeftRightBtns">
-                    <button>
-                        <img src="Icons/ArrowLeft.svg" alt="">
-                    </button>
 
-                    <button>
-                        <img src="Icons/ArrowRight.svg" alt="">
-                    </button>
-                </div>
-
-                <p>Products</p>
-
-                <div class="centerDiv addGapBetweenImg hideOverflow addMarginBottom">
-                    <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
-                    <img class="gallerySelectedImg" src="Images/Product_1_Transparent.png" alt="">
-                    <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
-                </div>
+            <p>Products</p>
+            <div class="galleryContainer">
+                <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
+                <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
+                <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
+                <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
+                <img class="galleryImg" src="Images/Product_1_Transparent.png" alt="">
             </div>
 
-            <div class="galleryWrapper">
-                <div id="galleryLeftRightBtns">
-                    <button>
-                        <img src="Icons/ArrowLeft.svg" alt="">
-                    </button>
-
-                    <button>
-                        <img src="Icons/ArrowRight.svg" alt="">
-                    </button>
-                </div>
-
-                <p>Renders</p>
-
-                <div class="centerDiv addGapBetweenImg hideOverflow addMarginBottom">
-                    <img class="galleryImg" src="Images/space_elevator.jpg" alt="">
-                    <img class="gallerySelectedImg" src="Images/space_station_wide_shot.jpg" alt="">
-                    <img class="galleryImg" src="Images/space_elevator.jpg" alt="">
-                </div>
+            <p>Renders</p>
+            <div class="galleryContainer">
+                <img class="galleryImgNoBg" src="Images/space_station_wide_shot.jpg" alt="">
+                <img class="galleryImgNoBg" src="Images/space_station_wide_shot.jpg" alt="">
+                <img class="galleryImgNoBg" src="Images/space_station_wide_shot.jpg" alt="">
+                <img class="galleryImgNoBg" src="Images/space_station_wide_shot.jpg" alt="">
+                <img class="galleryImgNoBg" src="Images/space_station_wide_shot.jpg" alt="">
             </div>
+        </div>
+
+        <div id="pastProjects3DExtras">
+            <div id="pastProjects3DSplit">
+                <img src="Images/knight.jpg" alt="">
+                <img src="Images/steampunk_armor.jpg" alt="">    
+            </div>
+            <img src="Images/doomsword.jpg" alt="">
+            <img src="Images/tokyo_ghoul.jpg" alt="">
+        </div>
+
+    </div>
+    
+    <div id="imageViewer" class="viewer hide">
+        <img id="viewerImg" class="addBorderRadius" src="">
+    </div>
 
     <script src="script.js"></script>
 </body>

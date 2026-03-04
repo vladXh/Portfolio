@@ -26,10 +26,11 @@
     --default-padding: 12px;
 
     --margin-between-images: 6px;
+    --slight-margin-spacer: 16px;
     --main-margin-spacer: 32px;
     --extreme-margin-spacer: 64px;
 
-
+    --body-margins: 12px;
 }
 
 @font-face {
@@ -46,7 +47,7 @@ body{
     background-color: var(--primary-color);
     color: var(--text-color);
     font-family: 'jaldi-regular';
-    margin: 12px;
+    margin: var(--body-margins);
 }
 
 h1{
@@ -84,6 +85,11 @@ h5{
 p{
     font-size: var(--subtext-size);
     margin: 0;
+}
+
+button{
+    background-color: transparent;
+    border: none;
 }
 
 img { 
@@ -130,19 +136,8 @@ button:active{
 }
 
 .galleryImg{
-    width: 62vw;
+    width: 82vw;
     height: auto;
-    max-height: 78vw;
-    object-fit: cover;
-    background-color: var(--super-extreme-transparent-color);
-    border-radius: var(--main-border-radius);
-    padding: var(--default-padding);
-}
-
-.gallerySelectedImg{
-    width: 72vw;
-    height: auto;
-    max-height: 80vw;
     object-fit: cover;
     background-color: var(--super-extreme-transparent-color);
     border-radius: var(--main-border-radius);
@@ -150,17 +145,15 @@ button:active{
 }
 
 .galleryImgNoBg{
-    width: 62vw;
+    width: 92vw;
     height: auto;
     object-fit: cover;
     border-radius: var(--main-border-radius);
 }
 
-.gallerySelectedImgNoBg{
-    width: 72vw;
-    height: auto;
-    object-fit: cover;
-    border-radius: var(--main-border-radius);
+
+.galleryContainer:active {
+    cursor: grabbing;
 }
 
 
@@ -209,9 +202,24 @@ button:active{
 }
 
 .slider{
-    width: 100%;
     position: relative;
     overflow: hidden;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.sliderTrack{
+    width: 100%;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-25%);
+  }
 }
 
 .tightenTextDiv{
@@ -220,6 +228,23 @@ button:active{
 
 .slightTightenText{
     width: 90%;
+}
+
+.addBorderRadius{
+    border-radius: var(--main-border-radius);
+}
+
+.addSlightMargins{
+    margin-top: var(--slight-margin-spacer);
+    margin-bottom: var(--slight-margin-spacer);
+}
+
+.addSlightMarginBottom{
+    margin-bottom: var(--slight-margin-spacer);
+}
+
+.addSlightMarginTop{
+    margin-top: var(--slight-margin-spacer);
 }
 
 .addMargins{
@@ -366,10 +391,101 @@ button:active{
     padding-right: 6px;
 }
 
-.galleryWrapper{
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
+.galleryContainer{
+    display: flex;
+
+    margin-right: -12px;
+
+    justify-content: flex-start;
+    white-space: nowrap;
+    gap: var(--margin-between-images);
+    margin-bottom: var(--main-margin-spacer);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.galleryContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    background: rgba(0,0,0,0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.25s ease;
+}
+
+.viewer img {
+    max-width: 90%;
+    max-height: 90%;
+
+    transform: scale(0.9);
+    transition: transform 0.25s ease;
+}
+
+.viewer.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.viewer.show img {
+    transform: scale(1);
+}
+
+#mobileNavOptions{
+    position: absolute;
+    right: 12px;
+    top: 64px;
+
+    background: radial-gradient(
+        circle,
+        var(--gradient-color1) 0%,
+        var(--gradient-color2) 100%
+    );
+
+    width: fit-content;
+    box-shadow: 0px 0px 8px var(--gradient-color3);
+    padding: 24px;
+    padding-right: 36px;
+    padding-left: 36px;
+    border-radius: var(--main-border-radius);
+
+    opacity: 0;
+    transform: translateY(-10px);
+
+    transition: 
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    pointer-events: none;
+}
+
+#mobileNavOptions.show{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#mobileNavOptions a{
+    font-size: var(--large-text-size);
+    
 }
 
 #mobileNav{
@@ -381,6 +497,10 @@ button:active{
 
 #mobileNav img{
     height: 90%;
+}
+
+#mobileNav a{
+    font-size: 1.5rem;
 }
 
 #mobileNav h1{
@@ -415,37 +535,52 @@ button:active{
     margin: auto;
     height: auto;
     width: 88%;
-    margin-bottom: var(--extreme-margin-spacer);
-}
-
-#heroDesktopImg{
-    width: auto;
-    height: 38vw;
 }
 
 #heroDesktopImg{
     display: none;
+    width: 68vw;
+    height: auto;
+    margin-bottom: var(--main-margin-spacer);
+}
+
+#heroDesktopImg:hover{
+    transform: scale(1);
+}
+
+#heroTabletImg{
+    display: none;
+    width: auto;
+    height: 92vw;
+
 }
 
 #heroSlider{
     display: flex;
-    gap: 48px;
+    white-space: nowrap;
     margin-top: var(--main-margin-spacer);
     margin-bottom: 12px;
+    gap: 48px;
 }
 
 #heroSlider p{
     white-space: nowrap;
 }
 
-#codeSlider{
+#codeSlider, #appSlider{
     display: flex;
-    gap: 48px;
+    gap: 64px;
     margin-bottom: var(--main-margin-spacer);
     margin-top: var(--main-margin-spacer);
 }
 
-#codeLanguage{
+
+#codeSlider p, #appSlider p {
+    white-space: nowrap;
+}
+
+
+.codeLanguage{
     display: flex;
     align-items: center;
     gap: 6px;
@@ -462,12 +597,17 @@ button:active{
 #desktopNav{
     display: none;
     justify-content: space-between;
-    margin-bottom: var(--main-margin-spacer);
+    margin-bottom: var(--extreme-margin-spacer);
 }
 
 #navList{
     display: flex;
     gap: 48px;
+}
+
+#desktopNav a:hover {
+    text-shadow: 0px 0px 8px var(--text-color);
+    transition: text-shadow 0.3s ease;
 }
 
 #navGetInTouch{
@@ -592,6 +732,33 @@ button:active{
     z-index: 2;
 }
 
+#pastProjects3DExtras{
+    width: 70%;
+    gap: var(--margin-between-images);
+    margin-left: auto;
+}
+
+#pastProjects3DExtras img{
+    border-radius: var(--main-border-radius);
+    width: auto;
+    height: auto;
+}
+
+#pastProjects3DSplit{
+    display: flex;
+    margin-left: auto;
+    margin-bottom: var(--margin-between-images);
+    gap: var(--margin-between-images);
+}
+
+#pastProjects3DSplit img{
+    width: 50%;
+}
+
+@media(min-width: 600px){
+
+}
+
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
@@ -612,24 +779,7 @@ button:active{
         margin: 24px;
     }
 
-    .galleryImg{
-        width: 82vw;
-    }
-
-    .gallerySelectedImg{
-        width: 86vw;
-    }
-
-    .galleryImgNoBg{
-        width: 82vw;
-    }
-
-    .gallerySelectedImgNoBg{
-        width: 86vw;
-    }
-
-
-    #desktopNav{
+    #mainPage{
         display: flex;
     }
 
@@ -639,34 +789,124 @@ button:active{
         margin-bottom: var(--main-margin-spacer);
     }
 
-    #mobileNav{
+    #heroDesktopImg{
         display: none;
     }
 
-    #heroDesktopImg{
+    #heroTabletImg{
         display: block;
     }
 
     #heroMobileImg{
         display: none;
+    }
+
+    #aboutMeMobile{
+        display: none;
+    }
+
+    #aboutMeDesktopImg{
+        display: block;
         height: 100%;
+        width: 48vw;
+    }
+
+    #aboutMeDesktop{
+        display: block;
+    }
+
+    .slider{
+        margin-left: -24px;
+        margin-right: -24px;
+    }
+}
+
+/*DESKTOP*/
+@media (min-width: 1024px) {
+    :root{
+        --title-text-size: 2rem; 
+        --header-text-size: 5rem; 
+        --large-text-size: 3.75rem; 
+        --main-text-size: 2rem;
+        --subtext-size: 1.75rem; 
+
+        --main-border-radius: 16px;
+
+        --margin-between-images: 12px;
+        --main-margin-spacer: 64px;
+        --extreme-margin-spacer: 128px;
+    }
+
+    body{
+        margin: 48px;
+    }
+
+    .tightenTextDiv{
+        width: 40%;
+    }
+ 
+    .extremeTightenTextDiv
+    {
+        width: 26%;
+    }
+
+
+    img{
+        cursor: pointer;
+    }
+
+    .galleryImg{
+        width: 82vw;
+    }
+
+    .galleryImg.fixHeight{
+        max-width: 42vw;
+    }
+
+    .galleryImgNoBg{
+        width: 82vw;
+    }
+
+    .slierTrack{
+        animation: scroll 20s linear infinite;
+    }
+
+    .slider{
+        margin-left: -48px;
+        margin-right: -48px;
+    }
+
+    #heroSection{
+        margin: -48px;
+        padding: 48px;
+        margin-bottom: var(--main-margin-spacer);
+    }
+
+    #heroDesktopImg{
+        display: block;
+        height: 28vw;
         width: auto;
     }
-
-    #heroSlider{
-        justify-content: space-around;
+     
+    #mobileNav{
+        display: none;
     }
 
-    #codeSlider{
-        justify-content: space-around;
-    }
-
-    #mainPage{
+    #desktopNav{
         display: flex;
+    }
+
+    #codeSlider, #appSlider, #heroSlider{
+        display: flex;
+        gap: 124px;
     }
 
     #heroMainText h1, #heroMainText h2{
         text-align: left;
+    }
+
+    #heroTabletImg{
+        display: none;
     }
 
     #mobileIntroduction{
@@ -704,20 +944,6 @@ button:active{
         gap: var(--margin-between-images);
     }
 
-    #aboutMeMobile{
-        display: none;
-    }
-
-    #aboutMeDesktopImg{
-        display: block;
-        height: 100%;
-        width: 100%;
-    }
-
-    #aboutMeDesktop{
-        display: block;
-    }
-
     #whoAmITextSplit{
         display: flex;
     }
@@ -736,39 +962,10 @@ button:active{
     }
 
     #galleryLeftRightBtns{
-        display: flex;
-    }
-}
-
-/*DESKTOP*/
-@media (min-width: 1024px) {
-    
-    :root{
-        --title-text-size: 1.5rem; 
-        --header-text-size: 4.5rem; 
-        --large-text-size: 2.75rem; 
-        --main-text-size: 1.75rem;
-        --subtext-size: 1.5rem;
-        
-        --main-border-radius: 24px;
-    }   
-
-    body{
-        margin: 48px;
-    }
-    
-    #heroSection{
-        margin: -48px;
-        padding: 48px;
-        margin-bottom: var(--main-margin-spacer);
+        display: none;
     }
 
-    .tightenTextDiv{
-        width: 40%;
-    }
- 
-    .extremeTightenTextDiv
-    {
-        width: 26%;
+    .galleryContainer{
+        scrollbar-width: auto;
     }
 }
