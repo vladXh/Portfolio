@@ -4,7 +4,7 @@
     --contrast-color: #FF6A00;
     --text-color: #ffffff;
 
-    --transparent-color: rgba(255, 255, 255, 0.3);
+    --transparent-color: rgba(255, 255, 255, 0.4);
     --extreme-transparent-color: rgba(255, 255, 255, 0.12);
     --super-extreme-transparent-color: rgba(255, 255, 255, 0.06);
 
@@ -41,6 +41,10 @@
 @font-face {
     font-family: 'jaldi-bold';
     src: url(Fonts/fonnts.com-Jaldi-Bold.ttf) format('truetype');
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body{
@@ -87,6 +91,12 @@ p{
     margin: 0;
 }
 
+video{
+    height: auto;
+    width: 100%;
+    border-radius: var(--main-border-radius);
+}
+
 button{
     background-color: transparent;
     border: none;
@@ -125,6 +135,14 @@ button:hover{
 button:active{
     transform: scale(1);
     transition: transform 0.3 ease;
+}
+
+.spaceText{
+    line-height: 1.2;
+}
+
+.extremeSpaceText{
+    line-height: 1.4;
 }
 
 .hide{
@@ -740,7 +758,7 @@ button:active{
 
 #pastProjects3DExtras img{
     border-radius: var(--main-border-radius);
-    width: auto;
+    width: 100%;
     height: auto;
 }
 
@@ -754,6 +772,24 @@ button:active{
 #pastProjects3DSplit img{
     width: 50%;
 }
+
+#buildingTextTab{
+    width: 70%;
+}
+
+#buildsGallery img{
+    border-radius: var(--main-border-radius);
+    margin-bottom: var(--margin-between-images);
+}
+
+#animationSplit{
+    display: flex;
+}
+
+#animationShowcase video{
+    margin-bottom: var(--margin-between-images);
+}
+
 
 @media(min-width: 600px){
 
@@ -857,6 +893,7 @@ button:active{
 
     .galleryImg{
         width: 82vw;
+        max-height: 92vh;
     }
 
     .galleryImg.fixHeight{
@@ -884,7 +921,7 @@ button:active{
 
     #heroDesktopImg{
         display: block;
-        height: 28vw;
+        height: 26vw;
         width: auto;
     }
      
@@ -967,5 +1004,9 @@ button:active{
 
     .galleryContainer{
         scrollbar-width: auto;
+    }
+
+    #pastProjects3DExtras{
+        width: 50%;
     }
 }
