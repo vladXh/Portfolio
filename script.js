@@ -71,22 +71,140 @@ const images = document.querySelectorAll('img[src*="Images/"]:not(.noZoom)');
 const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImg");
 
+let zoomed = false;
+let scale = 1;
+
+let isDragging = false;
+let wasDragging = false;
+
+let translateX = 0;
+let translateY = 0;
+
+let lastMouseX = 0;
+let lastMouseY = 0;
+
+let lastTouchX = 0;
+let lastTouchY = 0;
+
+viewerImg.addEventListener("dragstart", (e) => e.preventDefault());
+
 images.forEach(img => {
     img.addEventListener("click", () => {
-        console.log("Img clicked");
         viewerImg.src = img.src;
         viewer.classList.add("show");
+        resetZoom();
     });
+});
+
+function resetZoom() {
+    zoomed = false;
+    scale = 1;
+    translateX = 0;
+    translateY = 0;
+
+    updateTransform();
+}
+
+viewerImg.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (wasDragging) {
+        wasDragging = false;
+        return;
+    }
+
+    if (!zoomed) {
+        zoomed = true;
+        scale = 2;
+    } else {
+        zoomed = false;
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+    }
+
+    updateTransform();
+});
+
+function updateTransform() {
+    viewerImg.style.transform =
+        `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+}
+
+viewerImg.addEventListener("mousedown", (e) => {
+    if (!zoomed) return;
+
+    isDragging = true;
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const dx = e.clientX - lastMouseX;
+    const dy = e.clientY - lastMouseY;
+
+    translateX += dx;
+    translateY += dy;
+
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+
+    wasDragging = true;
+
+    updateTransform();
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
 });
 
 viewer.addEventListener("click", () => {
     viewer.classList.remove("show");
+    resetZoom();
 });
 
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         viewer.classList.remove("show");
+        resetZoom();
     }
+});
+
+viewerImg.addEventListener("touchstart", (e) => {
+    if (!zoomed) return;
+
+    const touch = e.touches[0];
+
+    isDragging = true;
+    lastTouchX = touch.clientX;
+    lastTouchY = touch.clientY;
+}, { passive:false });
+
+viewerImg.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+
+    e.preventDefault();
+
+    const touch = e.touches[0];
+
+    const dx = touch.clientX - lastTouchX;
+    const dy = touch.clientY - lastTouchY;
+
+    translateX += dx;
+    translateY += dy;
+
+    lastTouchX = touch.clientX;
+    lastTouchY = touch.clientY;
+
+    wasDragging = true;
+
+    updateTransform();
+}, { passive:false });
+
+viewerImg.addEventListener("touchend", () => {
+    isDragging = false;
 });
 
 // gallery scroll

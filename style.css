@@ -176,7 +176,7 @@ button:active{
 
 
 .addGap{
-    gap: var(--main-margin-spacer);
+    gap: var(--margin-between-images);
 }
 
 .addGapBetweenImg{
@@ -463,8 +463,29 @@ button:active{
     pointer-events: auto;
 }
 
+.viewer img {
+    max-width: 90%;
+    max-height: 90%;
+    cursor: zoom-in;
+
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: none;
+
+    transform: scale(0.9);
+    transition: transform 0.05s linear;
+}
+
 .viewer.show img {
     transform: scale(1);
+}
+
+.viewer img:active {
+    cursor: grabbing;
+}
+
+.viewer img.zoomed {
+    cursor: grab;
 }
 
 #mobileNavOptions{
@@ -857,6 +878,10 @@ button:active{
     }
 }
 
+#UIText{
+    width: 70%;
+}
+
 /*DESKTOP*/
 @media (min-width: 1024px) {
     :root{
@@ -1008,5 +1033,10 @@ button:active{
 
     #pastProjects3DExtras{
         width: 50%;
+    }
+
+    #animationShowcase{
+        width: 65%;
+        margin-left: auto;
     }
 }
