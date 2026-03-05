@@ -208,16 +208,85 @@ viewerImg.addEventListener("touchend", () => {
 });
 
 // gallery scroll
-if (window.matchMedia("(pointer: fine)").matches) {
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-    const galleries = document.querySelectorAll(".galleryContainer");
+if (isMobile) {
+    window.addEventListener("scroll", () => {
+        const gallery = document.querySelector(".gallery");
+        const scrollPosition = window.scrollY;
 
-    galleries.forEach(gallery => {
-        gallery.addEventListener("wheel", (e) => {
-            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-                e.preventDefault();
-                gallery.scrollLeft += e.deltaY;
-            }
-        });
+        gallery.style.transform = `translateX(${-scrollPosition}px)`;
     });
 }
+
+const gallery = document.getElementById("gallery");
+const leftBtn = document.querySelector(".gallery-btn.left");
+const rightBtn = document.querySelector(".gallery-btn.right");
+
+
+
+
+// gallery controls
+const galleries = document.querySelectorAll(".galleryContainer");
+
+galleries.forEach(gallery => {
+    const wrapper = gallery.parentElement;
+    const leftBtn = wrapper.querySelector(".gallery-btn.left");
+    const rightBtn = wrapper.querySelector(".gallery-btn.right");
+
+    function bounce(direction) {
+        const amount = 40;
+
+        gallery.style.transition = "transform 0.15s";
+
+        if (direction === "left") {
+            gallery.style.transform = `translateX(${amount}px)`;
+        } else {
+            gallery.style.transform = `translateX(${-amount}px)`;
+        }
+
+        setTimeout(() => {
+            gallery.style.transform = "translateX(0)";
+        }, 150);
+
+        setTimeout(() => {
+            gallery.style.transition = "";
+        }, 300);
+
+    }
+
+    if (!isMobile) {
+        function getStep() {
+            const img = gallery.querySelector(".galleryImg");
+            const gap = parseFloat(getComputedStyle(gallery).gap) || 0;
+
+            return img.offsetWidth + gap;
+        }
+
+        leftBtn.addEventListener("click", () => {
+            if (gallery.scrollLeft <= 0) {
+                bounce("left");
+                return;
+            }
+
+            gallery.scrollBy({
+                left: -getStep(),
+                behavior: "smooth"
+            });
+        });
+
+        rightBtn.addEventListener("click", () => {
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+
+            if (gallery.scrollLeft >= maxScroll - 2) {
+                bounce("right");
+                return;
+            }
+
+            gallery.scrollBy({
+                left: getStep(),
+                behavior: "smooth"
+            });
+        });
+    }
+});

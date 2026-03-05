@@ -18,7 +18,7 @@
     --main-text-size: 1.25 em; /* 20 */
     --subtext-size: 1rem; /* 16 */
     
-    --default-transparency: 30%;
+    --default-transparency: 40%;
     --extreme-transparency: 12%;
 
     --main-border-radius: 12px;
@@ -137,6 +137,10 @@ button:active{
     transition: transform 0.3 ease;
 }
 
+.disableClickEffect:active{
+    transform: (1);
+}
+
 .spaceText{
     line-height: 1.2;
 }
@@ -153,6 +157,12 @@ button:active{
     overflow: hidden;
 }
 
+.galleryControls{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--margin-between-images);    
+}
+
 .galleryImg{
     width: 82vw;
     height: auto;
@@ -162,13 +172,22 @@ button:active{
     padding: var(--default-padding);
 }
 
-.galleryImgNoBg{
-    width: 92vw;
-    height: auto;
-    object-fit: cover;
+.removeBg{
+    background-color: transparent;
+    padding: 0;
+}
+
+.galleryContainer{
+    display:flex;
+    gap:20px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
     border-radius: var(--main-border-radius);
 }
 
+.galleryContainer::-webkit-scrollbar{
+    display:none;
+}
 
 .galleryContainer:active {
     cursor: grabbing;
@@ -343,6 +362,10 @@ button:active{
     justify-content: flex-start;
 }
 
+.midTightenTextDiv{
+    width: 60%;
+}
+
 .extremeTightenTextDiv
 {
     width: 40%;
@@ -428,6 +451,20 @@ button:active{
 
 .galleryContainer::-webkit-scrollbar {
     display: none;
+}
+
+.gallery-btn.disabled{
+    opacity:0.4;
+    pointer-events:none;
+}
+
+.gallery-btn.disabled{
+    opacity:0.35;
+    pointer-events:none;
+}
+
+.gallery-btn.disabled:hover{
+    opacity:0.35;
 }
 
 .viewer {
@@ -816,6 +853,38 @@ button:active{
 
 }
 
+#UIText h3{
+    width: 70%;
+}
+
+#UIImages img{
+    margin-bottom: var(--margin-between-images);
+}
+
+#scriptingText h1{
+    width: 60%;
+}
+
+#UIImagesSplit{
+    display: flex;
+    gap: var(--margin-between-images);
+}
+
+#UIImagesSplit img{
+    width: 50%;
+}
+
+#UIImagesDesktop{
+    display: flex;
+    gap: 12px;
+}
+
+#UIImagesDesktop img{
+    height: 32vw;
+    width: auto;
+    margin-bottom: var(--margin-between-images);
+}
+
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
@@ -876,11 +945,34 @@ button:active{
         margin-left: -24px;
         margin-right: -24px;
     }
+
+    #UIText{
+        display: flex;
+    }
+
+    #UIText div{
+        margin-right: var(--main-margin-spacer);
+    }
+
+    #UIImages img{
+        width: 100%;
+    }
+
+    #scriptingText{
+        display: flex;
+    }
+
+    #scriptingText h1{
+        width: 100%;
+        margin-right: var(--extreme-margin-spacer);
+    }
+
+    #scriptingSplit{
+        width: 60%;
+        margin-left: auto;
+    }
 }
 
-#UIText{
-    width: 70%;
-}
 
 /*DESKTOP*/
 @media (min-width: 1024px) {
@@ -1038,5 +1130,9 @@ button:active{
     #animationShowcase{
         width: 65%;
         margin-left: auto;
+    }
+
+    #UIImages{
+        display: none;
     }
 }
