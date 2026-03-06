@@ -13,7 +13,7 @@
     --gradient-color3: #6E0000;
 
     --title-text-size: 1.125rem; /* 18 */
-    --header-text-size: 3rem;  /* 48 */
+    --header-text-size: 2.75rem;  /* 48 */
     --large-text-size: 1.75rem; /* 28 */
     --main-text-size: 1.25 em; /* 20 */
     --subtext-size: 1rem; /* 16 */
@@ -62,7 +62,7 @@ h1{
 }
 
 h2{
-    font-size: var(--subtext-size);
+    font-size: var(--main-text-size);
     margin: 0;
 }
 
@@ -124,7 +124,7 @@ li{
 a{
     text-decoration: none;
     color: var(--text-color);
-    font-size: var(--subtext-size);
+    font-size: var(--main-text-size);
 }
 
 button:hover{
@@ -161,6 +161,10 @@ button:active{
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--margin-between-images);    
+}
+
+.galleryButtons{
+    display: none;
 }
 
 .galleryImg{
@@ -241,13 +245,28 @@ button:active{
 .slider{
     position: relative;
     overflow: hidden;
-    margin-left: -12px;
-    margin-right: -12px;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0px,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0px,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
 }
 
 .sliderTrack{
-    width: 100%;
-    animation: scroll 10s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
 }
 
 @keyframes scroll {
@@ -255,7 +274,7 @@ button:active{
     transform: translateX(0);
   }
   to {
-    transform: translateX(-25%);
+    transform: translateX(-50%);
   }
 }
 
@@ -435,12 +454,9 @@ button:active{
 .galleryContainer{
     display: flex;
 
-    margin-right: -12px;
-
     justify-content: flex-start;
     white-space: nowrap;
     gap: var(--margin-between-images);
-    margin-bottom: var(--main-margin-spacer);
 
     overflow-x: auto;
     overflow-y: hidden;
@@ -451,6 +467,11 @@ button:active{
 
 .galleryContainer::-webkit-scrollbar {
     display: none;
+}
+
+.gallery-btn{
+    width: 32px;
+    height: 32px;
 }
 
 .gallery-btn.disabled{
@@ -585,25 +606,20 @@ button:active{
 
 #heroSection{
     background-color: var(--contrast-color);
-    margin: -12px;
-    padding: 12px;
+    margin: calc(var(--body-margins) * -1);
+    padding: var(--body-margins);
     margin-bottom: var(--main-margin-spacer);
 }
 
 #mainPage{
+    display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
 #heroMainText{
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-bottom: var(--extreme-margin-spacer);
-    width: 95%;
-}
-
-#heroMainText h1, #heroMainText h2{
-    text-align: right;
 }
 
 #heroMobileImg{
@@ -614,9 +630,6 @@ button:active{
 }
 
 #heroDesktopImg{
-    display: none;
-    width: 68vw;
-    height: auto;
     margin-bottom: var(--main-margin-spacer);
 }
 
@@ -673,7 +686,7 @@ button:active{
 #desktopNav{
     display: none;
     justify-content: space-between;
-    margin-bottom: var(--extreme-margin-spacer);
+    margin-bottom: var(--main-margin-spacer);
 }
 
 #navList{
@@ -756,7 +769,7 @@ button:active{
 }
 
 #desktopIntroductionImages img{
-    height: 32vw;
+    height: 24vw;
     width: auto;
     flex: 1 1 auto;
     object-fit: cover;
@@ -806,29 +819,6 @@ button:active{
     width: 48px;
     border: none;
     z-index: 2;
-}
-
-#pastProjects3DExtras{
-    width: 70%;
-    gap: var(--margin-between-images);
-    margin-left: auto;
-}
-
-#pastProjects3DExtras img{
-    border-radius: var(--main-border-radius);
-    width: 100%;
-    height: auto;
-}
-
-#pastProjects3DSplit{
-    display: flex;
-    margin-left: auto;
-    margin-bottom: var(--margin-between-images);
-    gap: var(--margin-between-images);
-}
-
-#pastProjects3DSplit img{
-    width: 50%;
 }
 
 #buildingTextTab{
@@ -941,11 +931,6 @@ button:active{
         display: block;
     }
 
-    .slider{
-        margin-left: -24px;
-        margin-right: -24px;
-    }
-
     #UIText{
         display: flex;
     }
@@ -971,30 +956,49 @@ button:active{
         width: 60%;
         margin-left: auto;
     }
+
+    #pastProjects3DText h3{
+        width: 60%;
+    }
+
+    #whoAmITextSplit h1{
+        width: 70%;
+    }
+
+    #mainPage{
+        flex-direction: row-reverse;
+    }
 }
 
 
 /*DESKTOP*/
 @media (min-width: 1024px) {
     :root{
-        --title-text-size: 2rem; 
-        --header-text-size: 5rem; 
-        --large-text-size: 3.75rem; 
-        --main-text-size: 2rem;
-        --subtext-size: 1.75rem; 
+        --title-text-size: 1.5rem; 
+        --header-text-size: 4rem; 
+        --large-text-size: 2.5rem; 
+        --main-text-size: 1.5rem;
+        --subtext-size: 1.25rem; 
 
-        --main-border-radius: 16px;
+        --main-border-radius: 6px;
 
-        --margin-between-images: 12px;
+        --margin-between-images: 6px;
         --main-margin-spacer: 64px;
         --extreme-margin-spacer: 128px;
+        
+        --body-margins: 14vw;
     }
 
     body{
-        margin: 48px;
+        margin: var(--body-margins);
     }
 
     .tightenTextDiv{
+        width: 40%;
+    }
+
+
+    .midTightenTextDiv{
         width: 40%;
     }
  
@@ -1008,13 +1012,13 @@ button:active{
         cursor: pointer;
     }
 
-    .galleryImg{
-        width: 82vw;
-        max-height: 92vh;
+    .galleryButtons{
+        display: block;
     }
 
-    .galleryImg.fixHeight{
-        max-width: 42vw;
+    .galleryImg{
+        width: 82vw;
+        max-height: 82vh;
     }
 
     .galleryImgNoBg{
@@ -1025,21 +1029,19 @@ button:active{
         animation: scroll 20s linear infinite;
     }
 
-    .slider{
-        margin-left: -48px;
-        margin-right: -48px;
-    }
-
     #heroSection{
-        margin: -48px;
-        padding: 48px;
+        margin: calc(var(--body-margins) * -1);
+        padding-left: var(--body-margins);
+        padding-right: var(--body-margins);
         margin-bottom: var(--main-margin-spacer);
     }
 
     #heroDesktopImg{
         display: block;
-        height: 26vw;
+        height: 37vw;
         width: auto;
+        margin-top: -24px;
+        margin-bottom: -24px;
     }
      
     #mobileNav{
@@ -1055,8 +1057,10 @@ button:active{
         gap: 124px;
     }
 
-    #heroMainText h1, #heroMainText h2{
-        text-align: left;
+    #heroMainText{
+        justify-content: center;
+        margin-right: var(--main-margin-spacer);
+        width: auto;
     }
 
     #heroTabletImg{
@@ -1111,6 +1115,10 @@ button:active{
         display: flex;
     }
 
+    #pastProjects3DText h3{
+        width: 45%;
+    }
+
     #pastProjectsMainText{
         margin-left: auto;
     }
@@ -1135,4 +1143,6 @@ button:active{
     #UIImages{
         display: none;
     }
+
+    
 }

@@ -17,27 +17,25 @@ const programs = [
     {name: "Blender", img: "Icons/Blender.svg"}
 ];
 
-function buildSlider(data, times, containerId) {
+function buildSlider(data, containerId) {
     const container = document.getElementById(containerId);
     let html = "";
 
-    for (let i = 0; i < times; i++) {
-        data.forEach(item => {
-            html += `
-                <div class="codeLanguage">
-                    <img src="${item.img}" alt="${item.name}">
-                    <p>${item.name}</p>
-                </div>
-            `;
-        });
-    }
+    data.forEach(item => {
+        html += `
+            <div class="codeLanguage">
+                <img src="${item.img}" alt="${item.name}">
+                <p>${item.name}</p>
+            </div>
+        `;
+    });
 
-    container.innerHTML = html;
+    // duplicate once
+    container.innerHTML = html + html;
 }
 
-buildSlider(languages, 4, "codeSlider");
-buildSlider(programs, 2, "appSlider");
-
+buildSlider(programs, "appSlider");
+buildSlider(languages, "codeSlider");
 
 // nav control
 const navToggleBtn = document.getElementById("navToggleBtn");
