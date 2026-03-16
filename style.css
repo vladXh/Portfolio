@@ -62,7 +62,7 @@ h1{
 }
 
 h2{
-    font-size: var(--main-text-size);
+    font-size: var--large-text-size);
     margin: 0;
 }
 
@@ -712,6 +712,7 @@ button:active{
 
     border-radius: 100px;
     padding-right: 4px;
+    padding-left: 4px;
 }
 
 .getInTouch img{
@@ -793,7 +794,7 @@ button:active{
 }
 
 #aboutMeMobileImg{
-    height: 452px;
+    height: 421px;
     width: auto;
 }
 
@@ -875,6 +876,37 @@ button:active{
     margin-bottom: var(--margin-between-images);
 }
 
+.serviceBox{
+    background-color: var(--super-extreme-transparent-color);
+    padding: calc(var(--default-padding) * 2);
+    border-radius: var(--main-border-radius);
+    margin-top: calc(var(--margin-between-images) * 2);
+}
+
+.serviceBox h4{
+    margin-bottom: calc(var(--main-margin-spacer) / 2);
+}
+
+.serviceBoxLine{
+    background-color: var(--contrast-color);
+    width: 100%;
+    height: 6px;
+    margin-top: var(--main-margin-spacer);
+    margin-bottom: calc(var(--extreme-margin-spacer) * 2);
+    border-radius: 100px;
+}
+
+.spacer{
+    width: 100%;
+    height: 3px;
+    background-color: var(--extreme-transparent-color);
+    border-radius: 100px;
+}
+
+.spacer.lg{
+    margin-top: calc(var(--extreme-margin-spacer) * 2);
+}
+
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
@@ -923,8 +955,7 @@ button:active{
 
     #aboutMeDesktopImg{
         display: block;
-        height: 100%;
-        width: 48vw;
+        height: 64vw;
     }
 
     #aboutMeDesktop{
@@ -1144,5 +1175,13 @@ button:active{
         display: none;
     }
 
-    
+    .serviceBox{
+        flex: 1 1 32vw;
+        margin: var(--margin-between-images);
+    }
+
+    #servicesContainer{
+        display: flex;
+        flex-wrap: wrap;
+    }    
 }

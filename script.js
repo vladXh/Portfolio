@@ -288,3 +288,52 @@ galleries.forEach(gallery => {
         });
     }
 });
+
+const services = [
+    {
+        h4: "Creature Design & Sculpting",
+        h2: "From small animals to huge dragons.",
+        p: "I design and sculpt original creatures for games, cinematics, and concept visualization. Each creature is built with a strong focus on silhouette, anatomy, and surface detail to create believable and visually striking designs."
+    },
+    {
+        h4: "Hard Surface High-Poly Modeling",
+        h2: "Vehicles, weapons, props, etc.",
+        p: "I create detailed hard surface models for games, cinematics, and concept visualization. My workflow focuses on clean topology, precise forms, and carefully controlled surface detail to produce high-quality models suitable for rendering or further production pipelines."
+    },
+    {
+        h4: "Product Design & Visualization",
+        h2: "Bring your product to life in 3D.",
+        p: "I design and model products with a focus on form, usability, and visual presentation. My workflow emphasizes clean shapes, balanced proportions, and carefully considered surface detailing to create products that feel refined and functional."
+    },
+    {
+        h4: "Environment & Map Creation",
+        h2: "Detailed high quality maps for any game genre.",
+        p: "I design and build complete environments and maps from the ground up, handling every stage of production from layout and asset creation to final scene assembly. My environments are built with a strong focus on composition, scale, and atmosphere to create immersive spaces that feel believable and visually engaging."
+    },
+    {
+        h4: "Terrain & Geographic Environment Design",
+        h2: "High poly realistic terrain & geography creation",
+        p: "I create large-scale terrain and geographic environments designed to form the foundation of immersive digital worlds. My workflow focuses on natural landforms, believable terrain structure, and environmental storytelling through geography."
+    },
+    {
+        h4: "Website Design & Development",
+        h2: "High poly realistic terrain & geography creation",
+        p: "I design and develop modern websites with a strong focus on visual clarity, performance, and user experience. My workflow combines thoughtful interface design with clean front-end development to produce websites that are both visually engaging and technically reliable."
+    },
+]
+
+const container = document.getElementById("servicesContainer");
+
+services.forEach(service => {
+  const box = document.createElement("div");
+  box.className = "serviceBox";
+
+  box.innerHTML = `
+    <div class="serviceBoxLine"></div>
+    <h4>${service.h4}</h4>
+    <h2>${service.h2}</h2>
+    <p class="addTransparency">${service.p}</p>
+  `;
+
+  container.appendChild(box);
+});
