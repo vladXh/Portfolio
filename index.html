@@ -5,49 +5,49 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div id="heroSection" class="gradientDiv">
-        <nav id="mobileNav">
-            <a href="#">DUDEXH</a>
+<body> 
+    <nav id="mobileNav">
+        <a href="#">DUDEXH</a>
 
-            <button id="navToggleBtn">
-                <img id="navMoreBtns" src="Icons/Menu.png" alt="">
-                <img class="closeBtn hide" id="navCloseBtns" src="Icons/close.svg" alt="">
-            </button>
-        </nav>
+        <button id="navToggleBtn">
+            <img id="navMoreBtns" src="Icons/Menu.png" alt="">
+            <img class="closeBtn hide" id="navCloseBtns" src="Icons/close.svg" alt="">
+        </button>
+    </nav>
 
-        <div id="mobileNavOptions">
+    <div id="mobileNavOptions">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Hobbies</a></li>
+    </div>
+
+
+    <nav id="desktopNav" class="gradientDiv">
+        <a href="#">DUDEXH</a>
+
+        <ul id="navList">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Projects</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="#">Hobbies</a></li>
-        </div>
+            <div id="NavgetInTouch" class="getInTouch">
+                <li><a href="#">Get in touch</a></li>
+                <img src="Icons/rightArrowWhite.png" alt="">
+            </div>
+        </ul>
+    </nav>
 
-
-        <nav id="desktopNav">
-            <a href="#">DUDEXH</a>
-
-            <ul id="navList">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Hobbies</a></li>
-                <div id="NavgetInTouch" class="getInTouch">
-                    <li><a href="#">Get in touch</a></li>
-                    <img src="Icons/rightArrowWhite.png" alt="">
-                </div>
-            </ul>
-        </nav>
-        
+    <div id="heroSection" class="gradientDiv">
         <div id="mainPage">
             <img class="noZoom" id="heroDesktopImg" src="Images/hydra_1_transparent.png" alt="">
 
             <div id="heroMainText">
-                <h1 class="boldText">Creature & Hard Surface 3D Game Artist</h1>
-                <h2 class="margin0">6+ years of experience creating production 
-                    ready creatures, vehicles, weapons, and complex rigs for games.</h2>
+                <h1 class="boldText">Creature & Hard Surface 3D Artist</h1>
+                <h3 class="margin0">6+ years of experience creating production 
+                    ready creatures, vehicles, weapons, and complex rigs for games.</h3>
             </div>
         </div>
 
@@ -211,6 +211,12 @@
                 </div>
                 
                 <p class="addTransparency">Mech: Low Poly Game Ready Rig</p>
+                <div id="desktopIntroductionImages" class="roundImgBorders addMargins">
+                    <img src="Images/samurai_armor.jpg" alt="">
+                    <img src="Images/space_station_wide_shot.jpg" alt="">
+                    <img src="Images/p1_not_transparent.webp" alt="">
+                    <img src="Images/muscle_sculpt.jpg" alt="">
+                </div>
             </div>
             
             <div class="addMarginBottom">
@@ -550,13 +556,56 @@
         </div>
     </div>
 
-    <div class="spacer lg addMarginBottom"></div>
-
-    <div>
+    <div class="addExtremeMarginsTop">
         <h4>FAQ</h4>
         <h1>Any Questions?</h1>
         <h3>This section covers the most common questions about my services, approach, 
             and collaboration process, helping you understand exactly how we work.</h3>
+            
+            <div id="faqContainer">
+                
+                <!--
+                <div class="faqQuestion">
+                    <div class="spacer addMarginTop"></div>
+
+                    <div class="faqQuestionContainer">    
+                        <h3>How can I contact you?</h3>
+                        <h3>+</h3>
+                        <h3 class="hide">-</h3>
+                    </div>
+                    
+                    <p class="addTransparency hide">The best way to reach me is through Telegram or Discord, where I’m 
+                        most active and responsive.</p>
+                </div>
+                -->
+
+            </div>            
+    </div>
+
+    <div id="footer">
+        <div id="footerContainer">
+            <div>
+                <h3>Quick Links</h3>
+                <div id="footerLinks">
+                    <a href="">Home</a>
+                    <a href="">About Me</a>
+                    <a href="">Past Projects</a>
+                    <a href="">Services</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Stay Connected</h3>
+                <div id="footerSocial">
+                    <a href="">
+                        <img src="Icons/Discord.svg" alt="">                    
+                    </a>
+                    <a href="">
+                        <img src="Icons/Telegram.svg" alt="">                    
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="imageViewer" class="viewer hide">

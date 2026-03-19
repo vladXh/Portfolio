@@ -322,7 +322,7 @@ const services = [
     },
 ]
 
-const container = document.getElementById("servicesContainer");
+let container = document.getElementById("servicesContainer");
 
 services.forEach(service => {
   const box = document.createElement("div");
@@ -336,4 +336,102 @@ services.forEach(service => {
   `;
 
   container.appendChild(box);
+});
+
+const faqs = [
+    {
+        question: "How can I contact you?",
+        answer: "I am most active on Discord and Telegram, thus, those are the best platforms where you can contact me."
+    },
+    {
+        question: "What tools / software do you use?",
+        answer: "I mainly use Blender for modeling, however, for texturing I usually use Substance Painter."
+    },
+    {
+        question: "Do you offer fixed price or hourly?",
+        answer: "I always quote my projects with a fixed price, I do try to base it so that on average I make 20-30$ an hour, however, if a project takes longer thna I anticipated that is on me, not the client so the original quote will be fixed with some exceptions"
+    },
+    {
+        question: "Is there an upfront payment?",
+        answer: "Of course, I preffer 50% of the payment to be paid upfront but 25% will suffice as well, this upfront payment is to avoid scammers and ghosting."
+    },
+    {
+        question: "How much do you charge?",
+        answer: "It very heavily depends on the project, some extremely complex and detailed projects can reach up to 400$ while simpler ones can be as low as 15$"
+    },
+    {
+        question: "Can I request revisions?",
+        answer: "Of course, I offer as many revisions as it takes to reach the client's vision, having said that abusing the revisions I offer will not be tolerated."
+    },
+    {
+        question: "How do we start working together?",
+        answer: "You'll have to reach me either on Discord or Telegram and discuss about the project you'd like to have me work on, I'll give you a quote, once the 25-50% upfront payment is paid we can begin working together on the project."
+    },
+    {
+        question: "How long does a typical project take?",
+        answer: "This heavily depends on the size of the project and my availability but it can range from a couple hours to a couple days, I always try finish even the most complex projects in less than 2-3 weeks."
+    },
+];
+
+container = document.getElementById("faqContainer")
+
+faqs.forEach(faq => {
+    const faqDiv = document.createElement("div");
+    faqDiv.classList.add("faqQuestion");
+
+    faqDiv.innerHTML = `
+        <div class="spacer"></div>
+
+        <div class="faqQuestionContainer">
+            <h3>${faq.question}</h3>
+            <h3 class="toggleIcon">+</h3>
+        </div>
+
+        <p class="addTransparency faqP">${faq.answer}</p>
+    `;
+
+    const questionContainer = faqDiv.querySelector(".faqQuestionContainer");
+    const answer = faqDiv.querySelector("p");
+    const icon = faqDiv.querySelector(".toggleIcon");
+
+    questionContainer.addEventListener("click", () => {
+        answer.classList.toggle("show");
+
+        const isOpen = answer.classList.contains("show");
+        icon.textContent = isOpen ? "-" : "+";
+    });
+
+    container.appendChild(faqDiv);
+});
+
+
+let lastScroll = 0;
+
+const desktopNav = document.getElementById("desktopNav");
+const mobileNav = document.getElementById("mobileNav");
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+
+  // prevent weird behavior at very top
+  if (currentScroll <= 0) {
+    desktopNav.classList.remove("hidden");
+    mobileNav.classList.remove("hidden");
+    return;
+  }
+
+  // ignore tiny scroll movements (smoothness)
+  if (Math.abs(currentScroll - lastScroll) < 10) return;
+
+  if (currentScroll > lastScroll) {
+    // scrolling down → hide both
+    desktopNav.classList.add("hidden");
+    mobileNav.classList.add("hidden");
+  } else {
+    // scrolling up → show both
+    desktopNav.classList.remove("hidden");
+    mobileNav.classList.remove("hidden");
+  }
+
+  lastScroll = currentScroll;
 });
