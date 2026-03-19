@@ -7,7 +7,7 @@
 
 <body> 
     <nav id="mobileNav">
-        <a href="#">DUDEXH</a>
+        <a href="#heroSection">DUDEXH</a>
 
         <button id="navToggleBtn">
             <img id="navMoreBtns" src="Icons/Menu.png" alt="">
@@ -16,25 +16,23 @@
     </nav>
 
     <div id="mobileNavOptions">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Hobbies</a></li>
+        <li><a href="#heroSection">Home</a></li>
+        <li><a href="#pastProjects3DText">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#whoAmITextSplit">About</a></li>
     </div>
 
 
     <nav id="desktopNav" class="gradientDiv">
-        <a href="#">DUDEXH</a>
+        <a href="#heroSection">DUDEXH</a>
 
         <ul id="navList">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Hobbies</a></li>
+            <li><a href="#heroSection">Home</a></li>
+            <li><a href="#pastProjects3DText">Projects</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#whoAmITextSplit">About</a></li>
             <div id="NavgetInTouch" class="getInTouch">
-                <li><a href="#">Get in touch</a></li>
+                <li><a href="#footer">Get in touch</a></li>
                 <img src="Icons/rightArrowWhite.png" alt="">
             </div>
         </ul>
@@ -321,6 +319,131 @@
         </div>
     </div>
 
+    <div class="hide">
+        <div>
+            <div class="addExtremeMarginsBottom">
+                <h4>Animation</h4>
+                <h1 class="extremeTightenTextdiv extremeSpaceText">Where Movement Meets Purpose</h1>
+            </div>
+            
+            <div id="animationShowcase">
+                <video autoplay muted loop playsinline>
+                    <source src="videos/monster_rig_walk.mp4">
+                </video>
+                <video autoplay muted loop playsinline>
+                    <source src="videos/tokyo_ghoul_attack.mp4">
+                </video>
+
+                <div id="animationSplit" class="addGap">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/r15_idle.mp4">
+                    </video>
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/r15_walk.mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        
+        <div class="addExtremeMargins">
+            <div id="UIText">
+                <div>
+                    <h4>UI Design</h4>
+                    <h1>Visual Structure With A Purpose.</h1>
+                </div>
+                
+                <h3 class="addMarginBottom">
+                    From in-game menus to web interfaces, my UI work focuses on hierarchy, 
+                    readability, and feedback, shaped by real user behavior and production constraints.
+                </h3>
+            </div>
+
+            <div id="UIImages">
+                <img src="Images/firstbornUI.png" alt="">
+                <img src="Images/firstbornUI.png" alt="">
+                <div id="UIImagesSplit">
+                    <img src="Images/firstbornUI.png" alt="">
+                    <img src="Images/firstbornUI.png" alt="">
+                </div>
+            </div>
+
+            <div id="UIImagesDesktop">
+                <div>
+                    <img src="Images/firstbornUI.png" alt="">
+                    <img src="Images/firstbornUI.png" alt="">
+                </div>
+                <div>
+                    <img src="Images/firstbornUI.png" alt="">
+                    <img src="Images/firstbornUI.png" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="addExtremeMargins">
+            <div id="scriptingText">
+                <div>
+                    <h4>Scripting</h4>
+                    <h1>Code Built To</h1>
+                    <h1>Feel Invisible.</h1>
+                </div>
+
+                <div id="scriptingSplit">
+                    <h3 class="addMarginBottom">
+                        Every system is structured for readability and extension, 
+                        making it easy to iterate, debug, and evolve as projects grow.
+                    </h3>
+
+                    <div class="addTransparency">
+                        <p class="addMarginBottom">
+                            Each script is written with clarity and structure in mind, prioritizing 
+                            clean logic, predictable behavior, and modular design so changes can be 
+                            made quickly without introducing unnecessary complexity.
+                        </p>
+                        <p>
+                            By focusing on maintainable patterns and thoughtful architecture, I ensure 
+                            systems remain flexible over time—supporting rapid iteration, smooth debugging, 
+                            and continuous growth as features and requirements evolve.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="services">
+        <div>
+            <h4>Services</h4>
+            <h1 class="tightenTextDiv">What I Can Help You With</h1>
+            <h3 class="tightenTextDiv">
+                I support teams and creators by building reliable systems, engaging gameplay, 
+                and optimized 3D assets that hold up in real production environments.
+            </h3>
+
+            <div class="getInTouch contrastBg">
+                <li><a href="#">Get in touch</a></li>
+                <img src="Icons/rightArrowOrange.png" alt="">
+            </div>
+        </div>
+        
+        <div id="servicesContainer" class="addMarginTop">
+            <!--     
+            <div class="serviceBox">
+                <div class="serviceBoxLine"></div>
+            
+                <h4>3D Modeling</h4>
+                <h2>From small details to large structures.</h2>
+                <p class="addTransparency">
+                    I can model anything you need, from simple props to complex rigs, 
+                    large-scale vehicles, and detailed assets built for real production use.
+                </p>
+            </div>
+            -->
+
+        </div>
+    </div>
+
 
     <div id="whoAmITextSplit" class="addExtremeMargins">
         <div class="tightenTextDiv">
@@ -433,128 +556,6 @@
         </div> 
     </div>
 
-    <div class="hide">
-        <div>
-            <div class="addExtremeMarginsBottom">
-                <h4>Animation</h4>
-                <h1 class="extremeTightenTextdiv extremeSpaceText">Where Movement Meets Purpose</h1>
-            </div>
-            
-            <div id="animationShowcase">
-                <video autoplay muted loop playsinline>
-                    <source src="videos/monster_rig_walk.mp4">
-                </video>
-                <video autoplay muted loop playsinline>
-                    <source src="videos/tokyo_ghoul_attack.mp4">
-                </video>
-
-                <div id="animationSplit" class="addGap">
-                    <video autoplay muted loop playsinline>
-                        <source src="videos/r15_idle.mp4">
-                    </video>
-                    <video autoplay muted loop playsinline>
-                        <source src="videos/r15_walk.mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-        
-        <div class="addExtremeMargins">
-            <div id="UIText">
-                <div>
-                    <h4>UI Design</h4>
-                    <h1>Visual Structure With A Purpose.</h1>
-                </div>
-                
-                <h3 class="addMarginBottom">
-                    From in-game menus to web interfaces, my UI work focuses on hierarchy, 
-                    readability, and feedback, shaped by real user behavior and production constraints.
-                </h3>
-            </div>
-
-            <div id="UIImages">
-                <img src="Images/firstbornUI.png" alt="">
-                <img src="Images/firstbornUI.png" alt="">
-                <div id="UIImagesSplit">
-                    <img src="Images/firstbornUI.png" alt="">
-                    <img src="Images/firstbornUI.png" alt="">
-                </div>
-            </div>
-
-            <div id="UIImagesDesktop">
-                <div>
-                    <img src="Images/firstbornUI.png" alt="">
-                    <img src="Images/firstbornUI.png" alt="">
-                </div>
-                <div>
-                    <img src="Images/firstbornUI.png" alt="">
-                    <img src="Images/firstbornUI.png" alt="">
-                </div>
-            </div>
-        </div>
-
-        <div class="addExtremeMargins">
-            <div id="scriptingText">
-                <div>
-                    <h4>Scripting</h4>
-                    <h1>Code Built To</h1>
-                    <h1>Feel Invisible.</h1>
-                </div>
-
-                <div id="scriptingSplit">
-                    <h3 class="addMarginBottom">
-                        Every system is structured for readability and extension, 
-                        making it easy to iterate, debug, and evolve as projects grow.
-                    </h3>
-
-                    <div class="addTransparency">
-                        <p class="addMarginBottom">
-                            Each script is written with clarity and structure in mind, prioritizing 
-                            clean logic, predictable behavior, and modular design so changes can be 
-                            made quickly without introducing unnecessary complexity.
-                        </p>
-                        <p>
-                            By focusing on maintainable patterns and thoughtful architecture, I ensure 
-                            systems remain flexible over time—supporting rapid iteration, smooth debugging, 
-                            and continuous growth as features and requirements evolve.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <div>
-            <h4>Services</h4>
-            <h1 class="tightenTextDiv">What I Can Help You With</h1>
-            <h3 class="tightenTextDiv">
-                I support teams and creators by building reliable systems, engaging gameplay, 
-                and optimized 3D assets that hold up in real production environments.
-            </h3>
-
-            <div class="getInTouch contrastBg">
-                <li><a href="#">Get in touch</a></li>
-                <img src="Icons/rightArrowOrange.png" alt="">
-            </div>
-        </div>
-        
-        <div id="servicesContainer" class="addMarginTop">
-            <!--     
-            <div class="serviceBox">
-                <div class="serviceBoxLine"></div>
-            
-                <h4>3D Modeling</h4>
-                <h2>From small details to large structures.</h2>
-                <p class="addTransparency">
-                    I can model anything you need, from simple props to complex rigs, 
-                    large-scale vehicles, and detailed assets built for real production use.
-                </p>
-            </div>
-            -->
-
-        </div>
-    </div>
 
     <div class="addExtremeMarginsTop">
         <h4>FAQ</h4>
