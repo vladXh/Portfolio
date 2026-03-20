@@ -1009,6 +1009,22 @@ button:active{
     height: 42px;
 }
 
+.galleryAlbum{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: var(--margin-between-images);
+}
+
+.galleryAlbum img{
+    flex: 1 1 calc(25% - var(--margin-between-images));
+    height: 28vw;
+    object-fit: cover;
+    background-color: var(--super-extreme-transparent-color);
+    border-radius: var(--main-border-radius);
+    padding: var(--default-padding);
+}
+
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
