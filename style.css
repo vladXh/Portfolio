@@ -12,11 +12,11 @@
     --gradient-color2: red;
     --gradient-color3: #6E0000;
 
-    --title-text-size: 1.125rem; /* 18 */
-    --header-text-size: 2.75rem;  /* 48 */
-    --large-text-size: 1.75rem; /* 28 */
-    --main-text-size: 1.25 em; /* 20 */
-    --subtext-size: 1rem; /* 16 */
+    --title-text-size: 12px;
+    --header-text-size: 30px;
+    --large-text-size: 19px;
+    --main-text-size: 14px;
+    --subtext-size: 11px;
     
     --default-transparency: 40%;
     --extreme-transparency: 12%;
@@ -168,8 +168,8 @@ button:active{
 }
 
 .galleryImg{
-    width: 82vw;
-    height: auto;
+    width: auto;
+    height: 40vw;
     object-fit: cover;
     background-color: var(--super-extreme-transparent-color);
     border-radius: var(--main-border-radius);
@@ -920,7 +920,7 @@ button:active{
 
 .serviceBox{
     background-color: var(--super-extreme-transparent-color);
-    padding: calc(var(--default-padding) * 2);
+    padding: calc(var(--default-padding));
     border-radius: var(--main-border-radius);
     margin-top: calc(var(--margin-between-images) * 2);
 }
@@ -1029,11 +1029,11 @@ button:active{
 /*TABLET*/
 @media (min-width: 768px) {
     :root{
-        --title-text-size: 1.5rem; 
-        --header-text-size: 4rem; 
-        --large-text-size: 2.75rem; 
-        --main-text-size: 1.75rem;
-        --subtext-size: 1.35rem; 
+        --title-text-size: 17px; 
+        --header-text-size: 44px; 
+        --large-text-size: 30px; 
+        --main-text-size: 19px;
+        --subtext-size: 15px; 
 
         --main-border-radius: 16px;
 
@@ -1124,11 +1124,11 @@ button:active{
 /*DESKTOP*/
 @media (min-width: 1024px) {
     :root{
-        --title-text-size: 1.5rem; 
-        --header-text-size: 4rem; 
-        --large-text-size: 2.5rem; 
-        --main-text-size: 1.5rem;
-        --subtext-size: 1.25rem; 
+        --title-text-size: 17px; 
+        --header-text-size: 44px; 
+        --large-text-size: 27px; 
+        --main-text-size: 17px;
+        --subtext-size: 14px; 
 
         --main-border-radius: 6px;
 
@@ -1189,8 +1189,8 @@ button:active{
 
     #heroDesktopImg{
         display: block;
-        height: 37vw;
-        width: auto;
+        height: auto;
+        width: 52vw;
         margin-top: -24px;
         margin-bottom: -24px;
     }
@@ -1210,7 +1210,6 @@ button:active{
 
     #heroMainText{
         justify-content: center;
-        margin-right: var(--main-margin-spacer);
         width: auto;
     }
 
@@ -1304,4 +1303,25 @@ button:active{
         display: flex;
         flex-wrap: wrap;
     }    
+}
+
+
+/*LARGE DESKTOP*/
+@media (min-width: 1440px) {
+    :root{
+        --title-text-size: 17px; 
+        --header-text-size: 44px; 
+        --large-text-size: 27px; 
+        --main-text-size: 17px;
+        --subtext-size: 14px; 
+
+        --main-border-radius: 6px;
+
+        --margin-between-images: 6px;
+        --main-margin-spacer: 64px;
+        --extreme-margin-spacer: 128px;
+        
+        --body-margins: 14vw;
+    }
+    
 }

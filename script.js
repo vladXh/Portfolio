@@ -352,6 +352,10 @@ const faqs = [
         answer: "I always quote my projects with a fixed price, I do try to base it so that on average I make 20-30$ an hour, however, if a project takes longer thna I anticipated that is on me, not the client so the original quote will be fixed with some exceptions"
     },
     {
+        question: "What is my timezone?",
+        answer: "My timezone is UTC+3"
+    },
+    {
         question: "Is there an upfront payment?",
         answer: "Of course, I preffer 50% of the payment to be paid upfront but 25% will suffice as well, this upfront payment is to avoid scammers and ghosting."
     },
